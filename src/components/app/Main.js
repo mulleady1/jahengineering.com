@@ -8,7 +8,7 @@ export default class Main extends React.Component {
 	render() {
 
 		return (
-			<div className={styles.main}>
+			<div className={`page ${styles.main}`}>
 				<section>
 					<h1>Modern custom software done right</h1>
 					<p>

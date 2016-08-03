@@ -9,6 +9,7 @@ import App from './components/app/App';
 import Main from './components/app/Main';
 import Login from './components/login/Login';
 import ContactForm from './components/contact/ContactForm';
+import VendorProfile from './components/vendor-profile';
 import debug from 'debug';
 
 window._debug = debug;
@@ -25,6 +26,7 @@ ReactDOM.render((
 				<IndexRoute component={Main} />
 				<Route path="login" component={Login} />
 				<Route path="contact" component={ContactForm} />
+				<Route path="vendor-profile" component={VendorProfile} />
 			</Route>
 		</Router>
 	</Provider>

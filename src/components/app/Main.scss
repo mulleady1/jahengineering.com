@@ -16,17 +16,17 @@ input, textarea, button {
 	width: 100%;
 	padding: 9px;
 	font-size: 18px;
-	border: 1px solid #555;
+	border: 1px solid #888;
 	border-radius: 0;
 	background: transparent;
 	appearance: none;
-	color: #a9a9a9;
+	color: #667;
 }
 textarea {
 	min-height: 125px;
 }
 button, a[role^="btn"] {
-	border: 2px solid #555;
+	border: 2px solid #52787b;
 	border-radius: 0;
 	appearance: none; 
 	padding: 10px 20px;
@@ -35,17 +35,17 @@ button, a[role^="btn"] {
 	font-weight: 400;
 	letter-spacing: 1px;
 	&:hover {
-		border-color: #3f7390;
+		border-color: #22484b;
 		cursor: pointer;
 		text-decoration: none;
 	}
 	&:active {
-		background: #252525;
+		background: #eee;
 	}
 	&[disabled] {
 		cursor: initial;
 		&:hover {
-			border-color: #555;
+			border-color: #52787b;
 		}
 	}
 	&[role="btn-sm"] {
@@ -56,9 +56,10 @@ button, a[role^="btn"] {
 }
 .main {
 	section {
-		margin: auto;
-		max-width: 1000px;
-		padding: 100px 20px;
+		padding: 100px 0;
 		border-bottom: 1px solid #ddd;
+		div[class^="ContactForm"] {
+			padding: 0;
+		}
 	}
 }

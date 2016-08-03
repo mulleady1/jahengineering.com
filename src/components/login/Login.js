@@ -24,7 +24,7 @@ export default class Login extends React.Component {
 		];
 
 		return (
-			<div className={styles.wrapper}>
+			<div className={`page ${styles.wrapper}`}>
 				<Form 
 					title="Login" 
 					inputs={inputs}
