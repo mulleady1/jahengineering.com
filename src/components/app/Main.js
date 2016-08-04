@@ -10,10 +10,8 @@ export default class Main extends React.Component {
 		return (
 			<div className={`page ${styles.main}`}>
 				<section>
-					<h1>Modern custom software done right</h1>
-					<p>
-						We build great stuff
-					</p>
+					<h1>JAH Software Engineering</h1>
+					<h3>Modern custom software done right</h3>
 				</section>
 				<section>
 					<h2>Services</h2>
@@ -81,15 +79,15 @@ export default class Main extends React.Component {
 						<li>are open to change</li>
 						<li>deliver features in continuous increments</li>
 						<li>want to make sure you're happy every step of the way</li>
-						<li>
-							While this holds true to our internal workflows on every 
-							project, we also tailor our external processes to meet 
-							your needs. For example, if you want daily progress updates 
-							emailed to you at close of business, we're more than willing 
-							to oblige. If instead you'd rather Skype once a week, we're 
-							fine with that as well.
-						</li>
 					</ul>
+					<p>
+						While this holds true to our internal workflows on every 
+						project, we also tailor our external processes to meet 
+						your needs. For example, if you want daily progress updates 
+						emailed to you at close of business, we're more than willing 
+						to oblige. If instead you'd rather Skype once a week, we're 
+						fine with that as well.
+					</p>
 				</section>
 				<section>
 					<h2>Deployment</h2>
