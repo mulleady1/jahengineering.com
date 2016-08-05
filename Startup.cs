@@ -7,6 +7,7 @@ using Microsoft.Extensions.Logging;
 using Jah.Models;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Newtonsoft.Json;
+using System;
 
 namespace Jah
 {
@@ -21,10 +22,10 @@ namespace Jah
             this.IsDevelopment = env.IsDevelopment();
 
             var builder = new ConfigurationBuilder()
-            .SetBasePath(env.ContentRootPath)
-            .AddJsonFile("appsettings.json", optional: true, reloadOnChange: true)
-            .AddJsonFile($"appsettings.{env.EnvironmentName}.json", optional: true)
-            .AddEnvironmentVariables();
+                .SetBasePath(env.ContentRootPath)
+                .AddJsonFile("appsettings.json", optional: true, reloadOnChange: true)
+                .AddJsonFile($"appsettings.{env.EnvironmentName}.json", optional: true)
+                .AddEnvironmentVariables();
 
             Configuration = builder.Build();
         }
@@ -40,7 +41,10 @@ namespace Jah
             services.AddDbContext<JahDbContext>(options =>
                 options.UseSqlite(Configuration.GetConnectionString("DefaultConnection"))
             );
-            services.AddIdentity<JahUser, IdentityRole>()
+            services
+                .AddIdentity<JahUser, IdentityRole>(options =>
+                    options.Cookies.ApplicationCookie.ExpireTimeSpan = TimeSpan.FromDays(1000)
+                )
                 .AddEntityFrameworkStores<JahDbContext>()
                 .AddDefaultTokenProviders();
         }
@@ -54,11 +58,11 @@ namespace Jah
             if (this.IsDevelopment)
             {
                 app.UseCors(builder =>
-                builder
-                .WithOrigins(new string[] { "http://0.0.0.0:5001", "http://localhost:5001" })
-                .AllowAnyHeader()
-                .AllowCredentials()
-                .AllowAnyMethod()
+                    builder
+                        .WithOrigins(new string[] { "http://0.0.0.0:5001", "http://localhost:5001" })
+                        .AllowAnyHeader()
+                        .AllowCredentials()
+                        .AllowAnyMethod()
                 );
             }
 
