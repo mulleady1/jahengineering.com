@@ -16,11 +16,16 @@ h1, h2, h3, h4, h5, h6 {
 	font-weight: 300;
 }
 a {
-	color: #eee;
 	text-decoration: none;
 }
-a:not(.plain):hover {
+a:hover {
 	text-decoration: underline;
+}
+nav a {
+	color: #eee;
+}
+p a {
+	font-weight: bold;
 }
 .loading {
 	margin: 50px auto;
