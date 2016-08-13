@@ -1,13 +1,12 @@
 import React from 'react';
 import ContactForm from '../contact/ContactForm';
-import Image from '../shared/Image';
 import styles from './Main.scss';
 
 export default class Main extends React.Component {
 
-	render() {
+  render() {
 
-		return (
+    return (
       <div>
         <div className={`page ${styles.main}`}>
           <section className={styles.top}>
@@ -108,7 +107,7 @@ export default class Main extends React.Component {
           </section>
         </div>
       </div>
-		);
-	}
+    );
+  }
 
 }

@@ -1,13 +1,13 @@
 import {assert} from 'chai';
-import {mount, shallow, render} from 'enzyme';
+import {shallow} from 'enzyme';
 import React from 'react';
 import App from './App';
 
-describe('Test the root App component', function() {
+describe('Test the root App component', () => {
 
-	it('should render the app', function() {
-		const wrapper = shallow(<App />);
-		assert.isOk(wrapper.html());
-	});
+  it('should render the app', () => {
+    const wrapper = shallow(<App />);
+    assert.isOk(wrapper.html());
+  });
 	
 });

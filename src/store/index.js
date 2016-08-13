@@ -8,9 +8,7 @@ window.startLogger = () => loggingFlag = true;
 window.stopLogger = () => loggingFlag = false;
 
 const logger = createLogger({
-	predicate: (getState, action) => {
-		return loggingFlag;
-	}
+  predicate: () => loggingFlag
 });
 
 store = createStore(reducers, applyMiddleware(logger));

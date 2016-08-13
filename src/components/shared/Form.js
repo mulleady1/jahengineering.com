@@ -3,117 +3,119 @@ import Button from '../shared/Button';
 
 export default class Form extends React.Component {
 
-	constructor(props) {
-		super(props);
+  constructor(props) {
+    super(props);
 
-		this.state = {
-			processing: false,
-			feedback: null
-		};
+    let state = {
+      processing: false,
+      feedback: null
+    };
 
-		props.inputs.forEach(input => this.state[input.name] = input.value);
+    props.inputs.forEach(input => state[input.name] = input.value);
 
-		this.onChange = this.onChange.bind(this);
-		this.onSubmit = this.onSubmit.bind(this);
-	}
+    this.state = state;
 
-	componentWillMount() {
-		this.setFeedbackAndProcessingState(this.props);
-	}
+    this.onChange = this.onChange.bind(this);
+    this.onSubmit = this.onSubmit.bind(this);
+  }
 
-	componentWillReceiveProps(nextProps) {
-		this.setFeedbackAndProcessingState(nextProps);
+  componentWillMount() {
+    this.setFeedbackAndProcessingState(this.props);
+  }
 
-		if (this.props.inputs !== nextProps.inputs) {
-			let state = {};
-			nextProps.inputs.forEach(input => state[input.name] = input.value);
-			this.setState(state);
-		}
-	}
+  componentWillReceiveProps(nextProps) {
+    this.setFeedbackAndProcessingState(nextProps);
 
-	setFeedbackAndProcessingState(props) {
-		const { feedback, processing } = props;
-		let nextState = {};
-		
-		if (feedback !== this.state.feedback) {
-			nextState.feedback = feedback;
-		}
+    if (this.props.inputs !== nextProps.inputs) {
+      let state = {};
+      nextProps.inputs.forEach(input => state[input.name] = input.value);
+      this.setState(state);
+    }
+  }
 
-		if (processing !== this.state.processing) {
-			nextState.processing = processing;
-		}
+  setFeedbackAndProcessingState(props) {
+    const { feedback, processing } = props;
+    let nextState = {};
+    
+    if (feedback !== this.state.feedback) {
+      nextState.feedback = feedback;
+    }
 
-		this.setState(nextState);
-	}
+    if (processing !== this.state.processing) {
+      nextState.processing = processing;
+    }
 
-	render() {
-		let inputs = this.props.inputs.map((data, i) => {
-			let input;
-			switch (data.type) {
-				case 'textarea':
-					input = (
-						<textarea
-							value={this.state[data.name]}
-							placeholder={data.placeholder}
-							onChange={(e) => this.onChange(data.name, e.target.value) } />
-					);
-					break;
-				case 'checkbox':
-				case 'radio':
-					input = (
-						<label>
-							<input
-								type={data.type}
-								value={this.state[data.name]}
-								onChange={(e) => this.onChange(data.name, e.target.checked) } />
-							{data.label}
-						</label>
-					);
-					break;
-				default:
-					input = (
-						<input
-							type={data.type}
-							value={this.state[data.name]}
-							placeholder={data.placeholder}
-							onChange={(e) => this.onChange(data.name, e.target.value) }
-							{...data.props} />
-					);
-			}
+    this.setState(nextState);
+  }
 
-			return (
-				<div key={i}>{input}</div>
-			);
-		});
+  render() {
+    let inputs = this.props.inputs.map((data, i) => {
+      let input;
+      switch (data.type) {
+        case 'textarea':
+          input = (
+            <textarea
+              value={this.state[data.name]}
+              placeholder={data.placeholder}
+              onChange={(e) => this.onChange(data.name, e.target.value) } />
+          );
+          break;
+        case 'checkbox':
+        case 'radio':
+          input = (
+            <label>
+              <input
+                type={data.type}
+                value={this.state[data.name]}
+                onChange={(e) => this.onChange(data.name, e.target.checked) } />
+              {data.label}
+            </label>
+          );
+          break;
+        default:
+          input = (
+            <input
+              type={data.type}
+              value={this.state[data.name]}
+              placeholder={data.placeholder}
+              onChange={(e) => this.onChange(data.name, e.target.value) }
+              {...data.props} />
+          );
+      }
 
-		inputs.push(
-			<div key={inputs.length}>
-				<Button processing={this.state.processing} onClick={this.onSubmit} />
-			</div>
-		);
+      return (
+        <div key={i}>{input}</div>
+      );
+    });
 
-		return (
-			<form onSubmit={this.onSubmit}>
-				<h2>{this.props.title}</h2>
-				{ this.state.feedback ? (
-					<div>{this.state.feedback}</div>
-				) : null
-				}
-				{inputs}
-			</form>
-		);
-	}
+    inputs.push(
+      <div key={inputs.length}>
+        <Button processing={this.state.processing} onClick={this.onSubmit} />
+      </div>
+    );
 
-	onChange(prop, value) {
-		this.setState({ [prop]: value, feedback: null });
-	}
+    return (
+      <form onSubmit={this.onSubmit}>
+        <h2>{this.props.title}</h2>
+        { this.state.feedback ? (
+          <div>{this.state.feedback}</div>
+        ) : null
+        }
+        {inputs}
+      </form>
+    );
+  }
 
-	onSubmit(e) {
-		e.preventDefault();
-		let data = { ...this.state };
-		delete data.processing;
-		delete data.feedback;
-		this.props.onSubmit(data);
-	}
+  onChange(prop, value) {
+    this.setState({ [prop]: value, feedback: null });
+  }
+
+  onSubmit(e) {
+    e.preventDefault();
+    let data = { ...this.state };
+    delete data.processing;
+    delete data.feedback;
+    this.props.onSubmit(data);
+  }
 
 }
