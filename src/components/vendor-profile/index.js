@@ -13,8 +13,8 @@ class VendorProfile extends React.Component {
         </p>
         <p>
           If you are a prime contractor or subcontractor looking 
-          for partnership opportunities, please feel free to 
-          <NavLink to="/contact">contact</NavLink> us.
+          for partnership opportunities, please feel free 
+          to <NavLink to="/contact">contact</NavLink> us.
         </p>
       </div>
     );
