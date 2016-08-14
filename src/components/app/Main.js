@@ -49,7 +49,7 @@ export default class Main extends React.Component {
         </div>
         <div className={`page ${styles.main}`}>
           <section>
-            <h2>About</h2>
+            <h2>About Us</h2>
             <p>
               We build world-class software tailored to your needs. With an honest, transparent, no-BS 
               approach, we work with you every step of the way to ensure we're building exactly what you want.
@@ -79,7 +79,7 @@ export default class Main extends React.Component {
             </ul>
           </section>
           <section>
-            <h2>Technology</h2>
+            <h2>Technologies</h2>
             <ul>
               <li>React</li>
               <li>React Native</li>
