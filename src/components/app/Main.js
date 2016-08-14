@@ -51,8 +51,8 @@ export default class Main extends React.Component {
           <section>
             <h2>About Us</h2>
             <p>
-              We build world-class software tailored to your needs. With an honest, transparent, no-BS 
-              approach, we work with you every step of the way to ensure we're building exactly what you want.
+              We build world-class software tailored to your needs. With an honest, transparent approach, 
+              we work with you every step of the way to ensure we're building exactly what you want.
             </p>
             <p>
               We are here for one reason: to help you improve your business. Whether you need automation for
