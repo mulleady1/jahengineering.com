@@ -4,9 +4,10 @@ nav {
 	left: 0;
 	right: 0;
 	opacity: 0.8;
-	background: #52787b;
 	height: 60px;
 	z-index: 100;
+  background-color: transparent;
+  transition: background-color .15s;
 }
 .nav {
 	max-width: 1000px;

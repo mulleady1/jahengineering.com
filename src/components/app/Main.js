@@ -5,6 +5,20 @@ import styles from './Main.scss';
 
 export default class Main extends React.Component {
 
+  constructor(props) {
+    super(props);
+
+    this.onScroll = this.onScroll.bind(this);
+  }
+
+  componentDidMount() {
+    window.addEventListener('scroll', this.onScroll);
+  }
+
+  componentWillUnmount() {
+    window.removeEventListener('scroll', this.onScroll);
+  }
+
   render() {
 
     const budgeterLogo = (
@@ -18,11 +32,15 @@ export default class Main extends React.Component {
 
     return (
       <div>
-        <div className={`page ${styles.main}`}>
-          <section className={styles.top}>
-            <h1>JAH Software Engineering</h1>
-            <h3>Modern custom software done right</h3>
-          </section>
+        <div ref="fold" className={styles.backgroundImg}>
+          <div className={`page ${styles.main}`}>
+            <section className={styles.top}>
+              <div className={styles.opaque}>
+                <h1>JAH Software Engineering</h1>
+                <h3>Modern custom software done right</h3>
+              </div>
+            </section>
+          </div>
         </div>
         <div className={styles.cardWrapper}>
           <div className="page">
@@ -111,6 +129,15 @@ export default class Main extends React.Component {
         </div>
       </div>
     );
+  }
+
+  onScroll() {
+    clearTimeout(this.timer);
+    const y = this.refs.fold.getBoundingClientRect().height;
+
+    this.timer = setTimeout(() => {
+      this.props.updateHasScrolled(document.body.scrollTop > y);
+    }, 200);
   }
 
 }

@@ -1,10 +1,23 @@
 import React from 'react';
 import {connect} from 'react-redux';
+import classNames from 'classnames';
 import AppActions from '../../actions/AppActions';
 import Header from './Header';
+import Main from './Main';
 import Footer from './Footer';
+import {addPropsToChildren} from '../../util';
 
 export class App extends React.Component {
+
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      hasScrolled: false
+    };
+
+    this.updateHasScrolled = this.updateHasScrolled.bind(this);
+  }
 
   getChildContext() {
     return {
@@ -17,13 +30,24 @@ export class App extends React.Component {
   }
 
   render() {
+    let opaqueNav = true;
+    if (this.props.children.type === Main) {
+      opaqueNav = this.state.hasScrolled; 
+    }
+    
+    const className = classNames({ 'opaque-nav': opaqueNav });
+    
     return (
-      <div>
+      <div className={className}>
         <Header />
-        {this.props.children}
+        {addPropsToChildren(this.props.children, { updateHasScrolled: this.updateHasScrolled })}
         <Footer />
       </div>
     );
+  }
+
+  updateHasScrolled(hasScrolled) {
+    this.setState({ hasScrolled });
   }
 }
 

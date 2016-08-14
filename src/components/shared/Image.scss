@@ -9,7 +9,9 @@
 	opacity: 0;
 	transition: opacity 0.1s;
 }
-.imgWrapper:hover {
+.imgWrapper:hover, 
+.imgWrapper:active,
+.imgWrapper:focus {
 	.overlay {
 		opacity: 0.4;
 		transition: opacity 0.1s;

@@ -1,11 +1,12 @@
 import React from 'react';
 import NavLink from '../shared/NavLink';
+import styles from './index.scss';
 
 class VendorProfile extends React.Component {
 
   render() {
     return (
-      <div className="page">
+      <div className={`page ${styles.wrapper}`}>
         <h2>Vendor Profile</h2>
         <p>
           JAH Engineering is a service disabled veteran owned 

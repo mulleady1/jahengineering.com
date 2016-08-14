@@ -73,8 +73,19 @@ button, a[role^="btn"] {
 		}
 	}
 }
+.backgroundImg {
+  background-image: url('/images/landing.jpg');
+  background-size: cover;
+}
 .top {
   padding-bottom: 100px;
+}
+.opaque {
+  padding: 40px;
+  background: #000;
+  opacity: 0.5;
+  max-width: 530px;
+  color: #fff;
 }
 .cardWrapper {
   padding: 100px 0;
