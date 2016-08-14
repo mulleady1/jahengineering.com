@@ -1,7 +1,6 @@
 .imgWrapper {
 	display: inline-block;
 	position: relative;
-	width: 100%;
 	background-repeat: no-repeat;
 	background-size: cover;
 	height: 180px;
@@ -39,8 +38,3 @@
 	align-items: center;
 }
 
-@media (min-width: 500px) {
-	.imgWrapper {
-		width: 50%;
-	}	
-}

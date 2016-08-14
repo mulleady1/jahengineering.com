@@ -112,6 +112,52 @@ button, a[role^="btn"] {
     margin: 0 -30px;
   }
 }
+.showcaseWrapper {
+  padding: 100px 0;
+  background: #f2f2f2;
+  h2 {
+    text-align: center;
+    margin-top: 0;
+  }
+}
+.showcase {
+  display: flex;
+  flex-flow: row wrap;
+  & > * {
+    flex-grow: 1;
+    margin: 1%;
+    box-shadow: 0px 0px 4px 0px #cacaca;
+    width: 48%;
+  }
+}
+.budgeterLogo {    
+	background: transparent;
+	font-family: 'Bitter';
+	border: 1px solid #008840;
+	border-radius: 50%;
+	width: 75px;
+	height: 75px;
+	position: relative;
+	.dollar {
+    position: absolute;
+    font-size: 80px;
+    color: #008840;
+    opacity: .5;
+    top: -12px;
+    left: 8px;
+	}
+	.b {
+    font-size: 75px;
+    color: #008840;
+    position: absolute;
+    top: -6px;
+    left: 16px;
+	}
+}
+.podsyLogo {
+	width: 90px;
+	height: 90px;
+}
 
 @media (max-width: 768px) {
   .main section {
@@ -120,8 +166,11 @@ button, a[role^="btn"] {
 			margin-top: 75px;
 		}
   }
-  .cardWrapper {
+  .cardWrapper, .showcaseWrapper {
     padding: 30px 0;
+  }
+  .showcaseWrapper h2 {
+    text-align: initial;
   }
   .card {
     max-width: 330px;

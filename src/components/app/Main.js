@@ -1,10 +1,20 @@
 import React from 'react';
 import ContactForm from '../contact/ContactForm';
+import Image from '../shared/Image';
 import styles from './Main.scss';
 
 export default class Main extends React.Component {
 
   render() {
+
+    const budgeterLogo = (
+      <div className={styles.budgeterLogo}>
+        <span className={styles.dollar}>$</span>
+        <span className={styles.b}>B</span>
+      </div>
+    );
+
+    const podsyLogo = (<img className={styles.podsyLogo} src="/images/podsy-logo.png" />);
 
     return (
       <div>
@@ -19,25 +29,37 @@ export default class Main extends React.Component {
             <div className={styles.card}>
               <h2>Engineering</h2>
               <p>
-                Stunning applications built using the latest technologies and engineering best practices
+                We build stunning applications using the latest technologies and engineering best practices
               </p>
             </div>
             <div className={styles.card}>
               <h2>Project Management</h2>
               <p>
-                From requirements to deployment, we maintain accountability 
+                From requirements to deployment, you have accountability 
                 and visibility at all times
               </p>
             </div>
             <div className={styles.card}>
               <h2>Process</h2>
               <p>
-                Using the Agile model we communicate efficiently, build quickly, and ship constantly
+                Following the Agile model, you see new features rapidly and consistently 
               </p>
             </div>
           </div>
         </div>
         <div className={`page ${styles.main}`}>
+          <section>
+            <h2>About</h2>
+            <p>
+              We build world-class software tailored to your needs. With an honest, transparent, no-BS 
+              approach, we work with you every step of the way to ensure we're building exactly what you want.
+            </p>
+            <p>
+              We are here for one reason: to help you improve your business. Whether you need automation for
+              your unique processes, features added to existing apps, or the creation of an entirely new platform,
+              we're here to help.      
+            </p>
+          </section>
           <section>
             <h2>Services</h2>
             <ul>
@@ -71,37 +93,18 @@ export default class Main extends React.Component {
               <li>DigitalOcean</li>
             </ul>
           </section>
-          <section>
-            <h2>Process</h2>
-            <p>
-              We follow the agile process model in our engineering efforts. This means, among other things, that we:
-            </p>
-            <ul>
-              <li>move quickly</li>
-              <li>are open to change</li>
-              <li>deliver features in continuous increments</li>
-              <li>want to make sure you're happy every step of the way</li>
-            </ul>
-            <p>
-              While this holds true to our internal workflows on every 
-              project, we also tailor our external processes to meet 
-              your needs. For example, if you want daily progress updates 
-              emailed to you at close of business, we're more than willing 
-              to oblige. If instead you'd rather Skype once a week, we're 
-              fine with that as well.
-            </p>
-          </section>
-          <section>
-            <h2>Project Management</h2>
-            <p>
-              We value accountability and transparency throughout every stage of the project. To accomplish this, we:
-            </p>
-            <ul>
-              <li>provide status updates at intervals that match your needs</li>
-              <li>build, test, and ship code continuously so that you see our progress and receive tangible deliverables</li>
-              <li>use organizational tools that keep historical records of all aspects of the project</li>
-            </ul>
-          </section>
+        </div>
+        <div className={styles.showcaseWrapper}>
+          <div className="page">
+            <h2>Showcase</h2>
+            <div className={styles.showcase}>
+              <Image src="/images/budgeter.png" link="https://getbudgeter.com" logo={budgeterLogo} />
+              <Image src="/images/podsy.png" link="http://podsylisten.com" logo={podsyLogo} />
+              <Image logo={<div>Yours!</div>} />
+            </div>
+          </div>
+        </div>
+        <div className={`page ${styles.main}`}>
           <section>
             <ContactForm />
           </section>
