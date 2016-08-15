@@ -11,6 +11,10 @@ export default class Main extends React.Component {
     this.onScroll = this.onScroll.bind(this);
   }
 
+  componentWillMount() {
+    this.props.updateHasScrolled(false);
+  }
+
   componentDidMount() {
     window.addEventListener('scroll', this.onScroll);
   }
@@ -70,12 +74,12 @@ export default class Main extends React.Component {
             <h2>About Us</h2>
             <p>
               We build world-class software tailored to your needs. With an honest, transparent approach, 
-              we work with you every step of the way to ensure we're building exactly what you want.
+              we work with you every step of the way to ensure we build exactly what you want.
             </p>
             <p>
               We are here for one reason: to help you improve your business. Whether you need automation for
               your unique processes, features added to existing apps, or the creation of an entirely new platform,
-              we're here to help.      
+              we can help.      
             </p>
           </section>
           <section>
@@ -83,7 +87,7 @@ export default class Main extends React.Component {
             <ul>
               <li>Custom software development</li>
               <li>Renovation of existing applications</li>
-              <li>Full-stack engineering, from user interface to database and infrastructure</li>
+              <li>Full-stack engineering, from user interface to infrastructure</li>
               <li>Tailored deployment options</li>
               <li>Cloud hosting and maintenance</li>
             </ul>

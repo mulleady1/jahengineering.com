@@ -3,11 +3,12 @@ nav {
 	top: 0;
 	left: 0;
 	right: 0;
-	opacity: 0.8;
+	opacity: 1;
 	height: 60px;
 	z-index: 100;
   background-color: transparent;
   transition: background-color .15s;
+  transition: opacity .15s;
 }
 .nav {
 	max-width: 1000px;
