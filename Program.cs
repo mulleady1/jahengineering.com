@@ -2,6 +2,7 @@ using System.IO;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.Extensions.Configuration;
+using System;
 
 namespace Jah
 {
@@ -13,6 +14,9 @@ namespace Jah
                 .AddCommandLine(args)
                 .AddEnvironmentVariables(prefix: "ASPNETCORE_")
                 .Build();
+
+            var port = Environment.GetEnvironmentVariable("JAH_PORT") ?? "5050";
+            var url = $"http://localhost:{port}";
             
             var host = new WebHostBuilder()
                 .UseConfiguration(config)
@@ -20,6 +24,7 @@ namespace Jah
                 .UseContentRoot(Directory.GetCurrentDirectory())
                 .UseIISIntegration()
                 .UseStartup<Startup>()
+                .UseUrls(url)
                 .Build();
 
             host.Run();
