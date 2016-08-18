@@ -17,7 +17,7 @@ namespace Jah
 
             var port = Environment.GetEnvironmentVariable("JAH_PORT") ?? "5050";
             var url = $"http://localhost:{port}";
-            Console.WriteLine($"***** Starting jahengineering.com at ${url}");
+            Console.WriteLine($"***** Starting jahengineering.com at {url}");
 
             var host = new WebHostBuilder()
                 .UseConfiguration(config)
