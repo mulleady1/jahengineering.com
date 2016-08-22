@@ -16,11 +16,19 @@ export default class ContactForm extends React.Component {
     };
   }
 
+  shouldComponentUpdate(nextProps, nextState) {
+    return !(
+      this.state.processing === nextState.processing &&
+      this.state.feedback === nextState.feedback &&
+      this.state.messageSent === nextState.messageSent
+    );
+  }
+
   render() {
     const inputs = [
-      { type: 'text', name: 'name', placeholder: 'Name' },
-      { type: 'text', name: 'email', placeholder: 'Email' },
-      { type: 'textarea', name: 'message', placeholder: 'Message' }
+      { type: 'text', name: 'name', placeholder: 'Name', value: '' },
+      { type: 'text', name: 'email', placeholder: 'Email', value: '' },
+      { type: 'textarea', name: 'message', placeholder: 'Message', value: '' }
     ];
 
     return (
