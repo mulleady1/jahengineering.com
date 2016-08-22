@@ -11,7 +11,10 @@ export default class Form extends React.Component {
       feedback: null
     };
 
-    props.inputs.forEach(input => state[input.name] = input.value);
+    props.inputs.forEach(input => {
+      const value = input.value !== undefined ? input.value : ''; 
+      state[input.name] = value;
+    });
 
     this.state = state;
 
@@ -28,7 +31,10 @@ export default class Form extends React.Component {
 
     if (this.props.inputs !== nextProps.inputs) {
       let state = {};
-      nextProps.inputs.forEach(input => state[input.name] = input.value);
+      nextProps.inputs.forEach(input => {
+        const value = input.value !== undefined ? input.value : ''; 
+        state[input.name] = value;
+      });
       this.setState(state);
     }
   }

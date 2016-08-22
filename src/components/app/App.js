@@ -31,7 +31,7 @@ export class App extends React.Component {
 
   render() {
     let opaqueNav = true;
-    if (this.props.children.type === Main) {
+    if (this.props.children && this.props.children.type === Main) {
       opaqueNav = this.state.hasScrolled; 
     }
     
@@ -39,7 +39,7 @@ export class App extends React.Component {
     
     return (
       <div className={className}>
-        <Header />
+        <Header user={this.props.user} />
         {addPropsToChildren(this.props.children, { updateHasScrolled: this.updateHasScrolled })}
         <Footer />
       </div>

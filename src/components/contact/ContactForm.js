@@ -1,6 +1,6 @@
 import React from 'react';
 import AppActions from '../../actions/AppActions';
-import Form from '../shared/Form';
+import Form from '../form/Form';
 import styles from './ContactForm.scss';
 
 export default class ContactForm extends React.Component {

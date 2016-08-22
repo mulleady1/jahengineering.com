@@ -4,7 +4,7 @@ import AppActions from '../../actions/AppActions';
 import NavLink from '../shared/NavLink';
 import styles from './Header.scss';
 
-export class Header extends React.Component {
+class Header extends React.Component {
 
   constructor(props) {
     super(props);
@@ -39,10 +39,4 @@ export class Header extends React.Component {
 
 }
 
-const setProps = (state) => {
-  return {
-    user: state.app.user
-  };
-};
-
-export default connect(setProps)(Header);
+export default Header;
