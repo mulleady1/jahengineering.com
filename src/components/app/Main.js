@@ -140,7 +140,10 @@ export default class Main extends React.Component {
     const y = this.refs.fold.getBoundingClientRect().height;
 
     this.timer = setTimeout(() => {
-      this.props.updateHasScrolled(document.body.scrollTop > y);
+      this.props.updateHasScrolled(
+        document.body.scrollTop > y ||
+        document.documentElement.scrollTop > y
+      );
     }, 200);
   }
 
