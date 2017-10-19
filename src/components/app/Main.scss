@@ -28,7 +28,7 @@ textarea {
 button, a[role^="btn"] {
 	border: 2px solid #52787b;
 	border-radius: 0;
-	appearance: none; 
+	appearance: none;
 	padding: 10px 20px;
 	font-size: 16px;
 	color: #666;
@@ -98,8 +98,7 @@ button, a[role^="btn"] {
 }
 .card {
   background: #fff;
-  box-shadow: 0 0 4px #ddd;
-  border: 1px solid #ddd;
+  box-shadow: 0 22px 68px -9px rgba(0,0,0,.08);
   padding: 50px;
   margin: 15px;
   max-width: 350px;
@@ -141,7 +140,7 @@ button, a[role^="btn"] {
     width: 48%;
   }
 }
-.budgeterLogo {    
+.budgeterLogo {
 	background: transparent;
 	font-family: 'Bitter';
 	border: 1px solid #008840;
